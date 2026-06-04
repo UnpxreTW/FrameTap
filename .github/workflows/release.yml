@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build universal binary
+        run: |
+          swift build -c release --arch arm64 --arch x86_64
+          BIN=$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/frametap
+          mkdir -p dist
+          cp "$BIN" dist/frametap
+          cp LICENSE README.md dist/
+          ( cd dist && tar -czf "frametap-${GITHUB_REF_NAME}-macos-universal.tar.gz" frametap LICENSE README.md )
+          lipo -info dist/frametap
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" dist/frametap-*.tar.gz --generate-notes --title "${GITHUB_REF_NAME}"
