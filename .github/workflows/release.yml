@@ -13,15 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build universal binary
+      - name: Build release binary (arm64)
         run: |
-          swift build -c release --arch arm64 --arch x86_64
-          BIN=$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/frametap
+          swift build -c release
+          BIN="$(swift build -c release --show-bin-path)/frametap"
           mkdir -p dist
           cp "$BIN" dist/frametap
           cp LICENSE README.md dist/
-          ( cd dist && tar -czf "frametap-${GITHUB_REF_NAME}-macos-universal.tar.gz" frametap LICENSE README.md )
-          lipo -info dist/frametap
+          ( cd dist && tar -czf "frametap-${GITHUB_REF_NAME}-macos-arm64.tar.gz" frametap LICENSE README.md )
+          file dist/frametap
 
       - name: Create GitHub Release
         env:
