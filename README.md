@@ -1,6 +1,6 @@
 # FrameTap
 
-原生 macOS 影片抽幀工具——**不需 ffmpeg、零外部相依**。
+原生 macOS 影片抽幀工具——**不需 ffmpeg、免裝任何系統工具**。
 
 `FrameTap` 只用 Apple 的 **AVFoundation** 框架與 Xcode 內建的 Swift 工具鏈，把影片
 （`.mp4` / `.mov`、H.264 / HEVC）轉成一連串 PNG / JPEG 影格。它是為了把影格餵給 LLM
