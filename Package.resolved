@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/UnpxreTW/SwiftStyleKit.git",
       "state" : {
-        "revision" : "de6dfc629bfc87e6b82b3ed644389d7f6c4ef45c",
-        "version" : "1.1.1"
+        "revision" : "9880b8c4d80e87b76d693b2bb3a9c9de5895a6c5",
+        "version" : "1.2.0"
       }
     }
   ],
