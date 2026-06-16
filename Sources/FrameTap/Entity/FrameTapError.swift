@@ -1,7 +1,7 @@
 //
 //  FrameTap
 //
-//  Copyright © 2026 Unpxre
+//  Copyright © 2026 Unpxre (GitHub: UnpxreTW)
 //  Licensed under the MIT License. See LICENSE for details.
 //
 //  SPDX-License-Identifier: MIT
