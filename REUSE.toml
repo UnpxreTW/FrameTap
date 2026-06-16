@@ -14,5 +14,5 @@ path = [
 	"docs/SECURITY.md",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2026 Unpxre"
+SPDX-FileCopyrightText = "2026 Unpxre (GitHub: UnpxreTW)"
 SPDX-License-Identifier = "MIT"
