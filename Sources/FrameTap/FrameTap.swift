@@ -72,6 +72,12 @@ struct FrameTap: AsyncParsableCommand {
 	@Option(help: "Output directory (default: <video>-frames).")
 	var out: String?
 
+	mutating func validate() throws {
+		guard maxFrames > 0 else {
+			throw ValidationError("--max-frames must be positive (got \(maxFrames))")
+		}
+	}
+
 	func run() async throws {
 		let videoURL: URL = .init(fileURLWithPath: video)
 		guard FileManager.default.fileExists(atPath: videoURL.path) else {
