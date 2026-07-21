@@ -26,5 +26,4 @@ struct FrameTapError: Error, CustomStringConvertible, LocalizedError {
 
 	/// 給人／agent 讀的錯誤說明；經 stderr 印出或作為 `errorDescription` 轉發。
 	let description: String
-
 }
