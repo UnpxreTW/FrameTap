@@ -56,3 +56,22 @@ frametap clip.mp4
 
 影格命名為 `frame_%04d_t<秒>.<副檔名>`、時間戳對齊**原始影片**時間軸；工具會把影格路徑
 以 markdown 清單印到 stdout，方便 agent 依序讀取。
+
+## 開發
+
+純 Swift Package，不需 Xcode 專案：
+
+```bash
+swift build   # 建置（含 SwiftStyleLint plugin 自動掃 house-style，違規印 warning、預設不擋 build）
+```
+
+目前無 test target；`swift test` 待補上單元測試後才適用。
+
+格式化（[SwiftStyleKit](https://github.com/UnpxreTW/SwiftStyleKit) 的 SwiftFormat 包裝）：
+
+```bash
+swift package plugin --allow-writing-to-package-directory format-source-code
+```
+
+CI（GitHub Actions）：`build.yml` 每次 PR／push main 跑 `swift build`；`reuse.yml` 檢查
+REUSE／SPDX 授權合規；`release.yml` 在打 tag 時建置 arm64 二進位並發 GitHub Release。
